@@ -60,11 +60,11 @@ def transformer_fn():
                             OneHotEncoder(categories="auto", sparse=False),
                             ["pickup_dow"],
                         ),
-                        (
-                            "std_scaler",
-                            StandardScaler(),
-                            ["trip_distance", "trip_duration"],
-                        ),
+                        #(
+                            #"std_scaler",
+                            #StandardScaler(),
+                            #["trip_distance", "trip_duration"],
+                        #),
                     ]
                 ),
             ),

@@ -3,6 +3,7 @@ experiment:
   tracking_uri: "sqlite:///metadata/mlflow/mlruns.db"
   artifact_location: "./metadata/mlflow/mlartifacts"
 
+
 # Set the registry server URI. This property is especially useful if you have a registry
 # server that’s different from the tracking server.
 model_registry:
@@ -13,6 +14,8 @@ model_registry:
 
 # Override the default train / validation / test dataset split ratios
 SPLIT_RATIOS: [0.80, 0.10, 0.10]
+
+TARGET_COL: "trip_distance"
 
 INGEST_CONFIG:
   # For different options please read: https://github.com/mlflow/recipes-regression-template#ingest-step

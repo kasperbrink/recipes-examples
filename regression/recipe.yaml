@@ -12,7 +12,7 @@
 
 recipe: "regression/v1"
 # Specifies the name of the column containing targets / labels for model training and evaluation
-target_col: "fare_amount"
+target_col: {{TARGET_COL}}
 # Sets the primary metric to use to evaluate model performance. This primary metric is used
 # to sort MLflow Runs corresponding to the recipe in the MLflow Tracking UI
 primary_metric: "root_mean_squared_error"
@@ -28,7 +28,7 @@ steps:
     # Specifies the method that defines the data transformations to apply during model inference
     transformer_method: transformer_fn
   train:
-    using: custom
+    using: automl/flaml
     # Specifies the method that defines the estimator type and parameters to use for model training
     estimator_method: estimator_fn
   evaluate:
@@ -41,6 +41,8 @@ steps:
         threshold: 50
       - metric: weighted_mean_squared_error
         threshold: 50
+      - metric: max_error
+        threshold: 100
   register:
     # Indicates whether or not a model that fails to meet performance thresholds should still
     # be registered to the MLflow Model Registry
