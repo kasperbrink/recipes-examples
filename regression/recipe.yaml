@@ -15,7 +15,7 @@ recipe: "regression/v1"
 target_col: {{TARGET_COL}}
 # Sets the primary metric to use to evaluate model performance. This primary metric is used
 # to sort MLflow Runs corresponding to the recipe in the MLflow Tracking UI
-primary_metric: "root_mean_squared_error"
+primary_metric: {{PRIMARY_METRIC}}
 steps:
   ingest: {{INGEST_CONFIG}}
   split:
@@ -29,8 +29,9 @@ steps:
     transformer_method: transformer_fn
   train:
     using: automl/flaml
+    time_budget_secs: 30
     # Specifies the method that defines the estimator type and parameters to use for model training
-    estimator_method: estimator_fn
+    # estimator_method: estimator_fn
   evaluate:
     # Sets performance thresholds that a trained model must meet in order to be eligible for
     # registration to the MLflow Model Registry

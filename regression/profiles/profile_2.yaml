@@ -13,9 +13,9 @@ model_registry:
   model_name: "taxi_fare_regressor"
 
 # Override the default train / validation / test dataset split ratios
-SPLIT_RATIOS: [0.80, 0.10, 0.10]
+SPLIT_RATIOS: [0.76, 0.12, 0.12]
 
-TARGET_COL: "trip_distance"
+TARGET_COL: "fare_amount"
 
 PRIMARY_METRIC: mean_absolute_error
 
